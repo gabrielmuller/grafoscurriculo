@@ -14,4 +14,5 @@ print("Um vértice: " + grafo.umVertice())
 print("Ordem: " + str(grafo.ordem()))
 print("Antecessores de ED:" + str(grafo.antecessores('Estruturas de Dados')))
 print("Sucessores de Grafos:" + str(grafo.sucessores('Grafos')))
+print("Ordem topológica: " + str(grafo.ordemTopologica()))
 

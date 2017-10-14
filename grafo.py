@@ -68,3 +68,26 @@ class Digrafo:
     def grauDeRecepcao(self, v):
         return len(self.antecessores(v))
 
+    def ordemTopologica(self):
+        self.naoVisitados = set(self.arestas)
+        self.L = []
+
+        while self.naoVisitados:
+            self.marcadosTemp = set()
+            vertice = next(iter(self.naoVisitados))
+            print(vertice)
+            self.visita_rec(vertice)
+
+        return list(reversed(self.L))
+
+    def visita_rec(self, v):
+        if v not in self.naoVisitados:
+            return
+        if v in self.marcadosTemp:
+            raise Exception('Grafo tem um ciclo em ' + str(v) + '.')
+
+        self.marcadosTemp.add(v)
+        for sucessor in self.sucessores(v):
+            self.visita_rec(sucessor)
+        self.naoVisitados.remove(v)
+        self.L.append(v)
