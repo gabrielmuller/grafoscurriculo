@@ -75,7 +75,6 @@ class Digrafo:
         while self.naoVisitados:
             self.marcadosTemp = set()
             vertice = next(iter(self.naoVisitados))
-            print(vertice)
             self.visita_rec(vertice)
 
         return list(reversed(self.L))
