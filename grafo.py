@@ -6,6 +6,11 @@ class Digrafo:
 
         # Arestas inversas
         self.inverso = {}
+
+    #DEBUG
+    def toString(self):
+        for aresta in self.arestas:
+            print(aresta)
             
     def adicionaVertice(self, v):
         if v in self.arestas:
