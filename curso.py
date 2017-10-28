@@ -46,14 +46,16 @@ class Graduacao():
         ordemTopologica = grafo.ordemTopologica()
         while grafo.ordem() > 0:
             for disciplina in ordemTopologica:
-                if horas + self.curriculo[disciplina].horas <= 30 and disciplina not in semestre:
+                if horas + self.curriculo[disciplina].horas <= 30 \
+                and disciplina not in semestre:
                     if not grafo.antecessores(disciplina):
                         semestre.add(disciplina)
                         horas += self.curriculo[disciplina].horas             
                 else:
-                    print("Recomendação para o " + str(num_semestre) + "° semestre com " + str(horas) + " h/a:")
+                    print("\nRecomendação para o " + str(num_semestre) \
+                    + "° semestre com " + str(horas) + " h/a:")
                     for disciplina in semestre:
-                        print(disciplina)
+                        print(disciplina + ': ' + self.curriculo[disciplina].nome)
                         grafo.removeVertice(disciplina)
                         ordemTopologica.remove(disciplina) 
                     semestre = set()
